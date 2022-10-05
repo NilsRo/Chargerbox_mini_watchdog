@@ -1,7 +1,7 @@
-# Charger watchdog
+# Chargerbox watchdog for PSUs
 I created this chargerbox based on two DPS1200 PSU models changed to 25V output. On my airfield with a gas generator there was some overload situations or simply out of gas which leads into an unstable supply voltage. My Hyperion EOS 1420i chargers had an issue if batteries are connected before supply is getting up...the FETs burned regularly. So I decided to build a simple watchdog using the PSU standardpins to avoid this situation.
 
-Based on an small ATTINY13a the IC measured the voltage on the battery connection if a battery is connected. If it detects any it will not switch on the main supply line of the PSUs. Also of the main output fell under 22V it will switch the main supply line of to guard the chargers.
+Based on an small ATTINY13a the IC measures the voltage on the battery connection and detects if a battery is connected on startup. If it detects any it will not switch on the main supply line of the PSUs. Also if the main output fell below 22V it will switch the main supply line off to guard the chargers.
 
 ![alt](schematic/Ladekoffer.JPG)
 
