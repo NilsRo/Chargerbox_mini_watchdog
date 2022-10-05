@@ -1,8 +1,8 @@
 #include <Arduino.h>
 // const int PIN_STEPS = 1024.0;
-const analog_pin_t PIN_AKKU1 = A1;
-const analog_pin_t PIN_AKKU2 = A2;
-const analog_pin_t PIN_CHARGER2 = A3;
+const analog_pin_t PIN_CHARGER2 = A1;
+const analog_pin_t PIN_BAT1 = A2;
+const analog_pin_t PIN_BAT2 = A3;
 const unsigned int PIN_LED = DD0;
 const unsigned int PIN_SWITCH = DD1;
 
@@ -13,9 +13,8 @@ bool check_akku() {
   int16_t val_akku1 = 0;
   int16_t val_akku2 = 0;
   for(int cnt = 0; cnt < 4; cnt++) {
-    val_akku1 = max(val_akku1, analogRead(PIN_AKKU1));
-    val_akku2 = max(val_akku2, analogRead(PIN_AKKU2));
-    delay(50);
+    val_akku1 = max(val_akku1, analogRead(PIN_BAT1));
+    val_akku2 = max(val_akku2, analogRead(PIN_BAT2));
   }
   return (val_akku1 > 0 or val_akku2 > 0); 
 } 
@@ -24,8 +23,7 @@ bool check_charger() {
   // Check multiple times to avoid glitch
   int16_t val_charger2 = 0;
   for(int cnt = 0; cnt < 4; cnt++) {
-    val_charger2 = max(val_charger2, analogRead(PIN_CHARGER2));
-    delay(50);
+    val_charger2 = min(val_charger2, analogRead(PIN_CHARGER2));
   }
   return (val_charger2 > 1000); 
 }
@@ -33,8 +31,8 @@ bool check_charger() {
 void setup() {
   wdt_enable(WDTO_2S);
 
-  pinMode(PIN_AKKU1, INPUT);
-  pinMode(PIN_AKKU2, INPUT);
+  pinMode(PIN_BAT1, INPUT);
+  pinMode(PIN_BAT2, INPUT);
   pinMode(PIN_CHARGER2, INPUT);
   pinMode(PIN_LED, OUTPUT);
   pinMode(PIN_SWITCH, OUTPUT);
