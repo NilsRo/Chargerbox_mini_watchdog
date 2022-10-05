@@ -1,0 +1,37 @@
+Partlist
+
+Exported from ATTINY.sch at 05.10.2022 20:51
+
+EAGLE Version 9.6.2 Copyright (c) 1988-2020 Autodesk, Inc.
+
+Assembly variant: 
+
+Part     Value          Device          Package      Library     Sheet
+
+AKKU1    LSP10          LSP10           LSP10        solpad      1
+AKKU2    LSP10          LSP10           LSP10        solpad      1
+C1       100nf          C-EU025-025X050 C025-025X050 rcl         1
+C2       100nf          C-EU025-025X050 C025-025X050 rcl         1
+C3       10nF           C-EU025-025X050 C025-025X050 rcl         1
+C4       10nF           C-EU025-025X050 C025-025X050 rcl         1
+C5       10nF           C-EU025-025X050 C025-025X050 rcl         1
+D1       1N4148DO35-7   1N4148DO35-7    DO35-7       diode       1
+GND_2    LSP10          LSP10           LSP10        solpad      1
+IC1      TINY13-20PU    TINY13-20PU     DIL08        atmel       1
+IC2      78L05Z         78L05Z          TO92         linear      1
+LADER1   LSP10          LSP10           LSP10        solpad      1
+LADER2   LSP10          LSP10           LSP10        solpad      1
+LED1                    LED3MM          LED3MM       led         1
+OK1      PC817          PC817           DIL04        optocoupler 1
+R1       1kOhm          R-EU_0204/7     0204/7       rcl         1
+R2       1kOhm          R-EU_0204/7     0204/7       rcl         1
+R3       1kOhm          R-EU_0204/7     0204/7       rcl         1
+R4       10kOhm         R-EU_0204/7     0204/7       rcl         1
+R5       560kOhm        R-EU_0204/7     0204/7       rcl         1
+R6       10kOhm         R-EU_0204/7     0204/7       rcl         1
+R8       560kOhm        R-EU_0204/7     0204/7       rcl         1
+R9       10kOhm         R-EU_0204/7     0204/7       rcl         1
+R10      220kOhm        R-EU_0204/7     0204/7       rcl         1
+R11      10kOhm         R-EU_0204/7     0204/7       rcl         1
+T1       BC337          BC337           TO92         transistor  1
+VOUT2    LSP10          LSP10           LSP10        solpad      1
