@@ -15,3 +15,12 @@ Based on an small ATTINY13a the IC measures the voltage on the battery connectio
 * GND_2: PIN 30 GND PSU2
 * BAT1: Battery 1 up to 65V
 * BAT2: Battery 2 up to 65V
+
+# What does the watchdog do?
+The PSUs does supply it on 12VSB before the main output is on. Also this PIN is backuped by the PSU and will be supplied for 3 seconds least after 220V connection is lost.
+
+## So what does it detect?
+If a battery is connected it will block the main supply line to come up and all chargers will stay off. This will prevent in case of Hyperion EOS 1420i to burn the FETs. Also if there is any fluctuation like perhaps the PSUs are connected to a generator that is overloaded it will disable tha main line proactive. To restore it the PSUs has to be turned off completly for security reasons.
+
+1. prevent burning chargers
+2. avoid using an unstable supply (also burning charger ;-) )
