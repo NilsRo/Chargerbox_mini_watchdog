@@ -39,23 +39,22 @@ void setup() {
   pinMode(PIN_LED, OUTPUT);
   pinMode(PIN_SWITCH, OUTPUT);
 
+  digitalWrite(PIN_LED, LOW);  
   digitalWrite(PIN_SWITCH, LOW);
-  digitalWrite(PIN_LED, HIGH);  
 }
 
 void loop() {
   if (charger_on) {
     if (!vout_ok()) {
       digitalWrite(PIN_SWITCH, LOW);
-      digitalWrite(PIN_LED, HIGH);
       charger_on = false;
       //Block PSU until a complete restart
       while (true)
       {
-        delay(1000);
+        delay(200);
         digitalWrite(PIN_LED, LOW);
         wdt_reset();
-        delay(1000);
+        delay(200);
         digitalWrite(PIN_LED, HIGH);
         wdt_reset();
       }
@@ -66,7 +65,7 @@ void loop() {
       charger_on = true;
       // wait for DC in regulation
       delay(500);
-      digitalWrite(PIN_LED, LOW);
+      digitalWrite(PIN_LED, HIGH);
     }
   } 
   wdt_reset();
