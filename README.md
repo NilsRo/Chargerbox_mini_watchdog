@@ -22,5 +22,5 @@ The PSUs does supply it on 12VSB before the main output is on. Also this PIN is 
 ## So what does it detect?
 If a battery is connected it will block the main supply line to come up and all chargers will stay off. This will prevent in case of Hyperion EOS 1420i to burn the FETs. Also if there is any fluctuation like perhaps the PSUs are connected to a generator that is overloaded it will disable tha main line proactive. To restore it the PSUs has to be turned off completly for security reasons.
 
-1. prevent burning chargers
-2. avoid using an unstable supply (also burning charger ;-) )
+1. prevent burning chargers FETs
+2. avoids using an unstable supply (which could also burn the charger ;-) )
