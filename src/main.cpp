@@ -15,9 +15,10 @@ bool bat_connected(uint16_t ms) {
   uint32_t startTime;
   startTime = millis();
   while((millis() - startTime) < ms) {
+    // 120Kohm / 10KkOhm -> 63V to 4,85V -> 993
     val_akku1 = max(val_akku1, analogRead(PIN_BAT1));
     val_akku2 = max(val_akku2, analogRead(PIN_BAT2));
-    delay(50);
+    delayMicroseconds(20);
     wdt_reset();
   }
   return (val_akku1 > 0 or val_akku2 > 0); 
@@ -28,13 +29,15 @@ bool vout_ok() {
   int16_t val_charger2 = 1023;
   for(int cnt = 0; cnt < 4; cnt++) {
     val_charger2 = min(val_charger2, analogRead(PIN_CHARGER2));
+    delayMicroseconds(20);
   }
-  return (val_charger2 > 1000); 
+  // 18Kohm / 10KkOhm -> 12,8V to 4,57V -> 935
+  return (val_charger2 > 925); 
 }
 
 void setup() {
-  // wdt_enable(WDTO_2S);
-  // analogReference(INTERNAL);   
+  wdt_enable(WDTO_2S);
+  analogReference(EXTERNAL);   
 
   pinMode(PIN_LED, OUTPUT);
   pinMode(PIN_SWITCH, OUTPUT);
